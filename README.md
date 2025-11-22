@@ -47,6 +47,8 @@ Unlike standard password managers that rely on older cryptographic standards lik
 ```bash
 git clone https://github.com/yourusername/securevault-cli.git
 cd securevault-cli
+```
+
 2. Install Dependencies
 pip install argon2-cffi pycryptodome psycopg2-binary tabulate pyinstaller
 3. Configure Database
