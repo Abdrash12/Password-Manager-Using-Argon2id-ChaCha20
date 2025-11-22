@@ -49,11 +49,11 @@ git clone https://github.com/yourusername/securevault-cli.git
 cd securevault-cli
 ```
 
-###2. Install Dependencies
+### 2. Install Dependencies
 ```bash
 pip install argon2-cffi pycryptodome psycopg2-binary tabulate pyinstaller
 ```
-###3. Configure Database
+### 3. Configure Database
 Update the DB_CONFIG dictionary inside vault.py with your local PostgreSQL credentials:
 ```bash
 DB_CONFIG = {
@@ -70,7 +70,7 @@ Run the Script
 python vault.py
 Compile into an Executable
 pyinstaller --onefile --name="SecureVault" --hidden-import="psycopg2" --hidden-import="argon2" vault.py
-###First Run
+### First Run
 
 The application will detect a fresh install.
 
@@ -80,11 +80,11 @@ This password derives your encryption key.
 
 Do not forget it; if lost, your data is unrecoverable.
 
-###Security Architecture
+### Security Architecture
 
 SecureVault uses a Two-Path Key Derivation system to separate authentication from encryption.
 
-###Path A (Authentication)
+### Path A (Authentication)
 
 Input: Master Password
 
@@ -92,7 +92,7 @@ Algorithm: Argon2id
 
 Output: Stored hash used to authenticate the user
 
-###Path B (Encryption Key)
+### Path B (Encryption Key)
 
 Input: Master Password + Unique Encryption Salt
 
@@ -100,6 +100,6 @@ Algorithm: Argon2id (Raw Output)
 
 Output: 32-byte key held only in RAM, used for ChaCha20 encryption and decryption
 
-###Disclaimer
+### Disclaimer
 
 This project is for educational and personal use. While it uses industry-standard cryptographic algorithms, ensure your machine is free from malware or keyloggers when handling sensitive data.
